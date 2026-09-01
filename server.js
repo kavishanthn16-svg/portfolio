@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 
@@ -7,12 +8,13 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const jsonParser = express.json({ limit: '1mb' });
+const publicDir = path.join(__dirname, 'public');
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const RATE_LIMIT_MAX_REQUESTS = 3;
 const recentRequests = new Map();
 
-app.use(express.static(__dirname));
+app.use(express.static(publicDir));
 app.use(jsonParser);
 
 function sanitizeText(value) {
@@ -116,7 +118,11 @@ app.post('/api/contact', applyRateLimit, async (req, res) => {
 });
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(path.join(publicDir, 'index.html'));
+});
+
+app.get('/fleetpro.html', (req, res) => {
+  res.sendFile(path.join(publicDir, 'fleetpro.html'));
 });
 
 app.use((req, res) => {
