@@ -115,6 +115,10 @@ app.post('/api/contact', applyRateLimit, async (req, res) => {
   }
 });
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+
 app.use((req, res) => {
   res.status(404).json({ success: false, message: 'Not found.' });
 });
