@@ -11,6 +11,12 @@ const emailField = document.getElementById('email');
 const messageField = document.getElementById('message');
 const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 const formStatus = document.getElementById('form-status');
+const cvPath = '/assets/Kavishanth_N_resume_v5.pdf';
+document.querySelectorAll('[data-cv-link]').forEach(link => {
+  link.href = cvPath;
+  link.setAttribute('download', 'Kavishanth_N_resume_v5.pdf');
+});
+
 const fieldErrorMap = {
   name: document.getElementById('name-error'),
   email: document.getElementById('email-error'),
