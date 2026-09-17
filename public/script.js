@@ -11,10 +11,10 @@ const emailField = document.getElementById('email');
 const messageField = document.getElementById('message');
 const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 const formStatus = document.getElementById('form-status');
-const cvPath = '/assets/Kavishanth_N_resume_v5.pdf';
+const cvPath = '/assets/Kavishanth_N_resume_v7.pdf';
 document.querySelectorAll('[data-cv-link]').forEach(link => {
   link.href = cvPath;
-  link.setAttribute('download', 'Kavishanth_N_resume_v5.pdf');
+  link.setAttribute('download', 'Kavishanth_N_resume_v7.pdf');
 });
 
 const fieldErrorMap = {
@@ -502,4 +502,3 @@ if (siteHeader) {
   resize();
   loop();
 })();
-
