@@ -11,10 +11,11 @@ const emailField = document.getElementById('email');
 const messageField = document.getElementById('message');
 const submitButton = contactForm ? contactForm.querySelector('button[type="submit"]') : null;
 const formStatus = document.getElementById('form-status');
-const cvPath = '/assets/Kavishanth_N_Resume.pdf';
-document.querySelectorAll('[data-cv-link]').forEach(link => {
-  link.href = cvPath;
-  link.setAttribute('download', 'Kavishanth_N_Resume.pdf');
+const resumeFileName = 'Kavishanth_Navaratnarajah_Resume.pdf';
+const resumePath = `/assets/${resumeFileName}`;
+document.querySelectorAll('[data-resume-link]').forEach(link => {
+  link.href = resumePath;
+  link.setAttribute('download', resumeFileName);
 });
 
 const fieldErrorMap = {
